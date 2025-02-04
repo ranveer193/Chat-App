@@ -25,34 +25,34 @@ app.use("/api/message", messageRoutes);
 const port = process.env.PORT || 8001
 const server = app.listen(port, console.log("server is running at post = ", port));
 
-const io = require("socket.io")(server, {
-    cors: {
-        origin: "https://chat-app-ca.netlify.app", 
-    },
-});
+// const io = require("socket.io")(server, {
+//     cors: {
+//         origin: "https://chat-app-ca.netlify.app", 
+//     },
+// });
 
-io.on("connection", (socket) => {
-    socket.on("setup", (userData) => {
-        socket.join(userData._id);
-        socket.emit("connected")
-    })
+// io.on("connection", (socket) => {
+//     socket.on("setup", (userData) => {
+//         socket.join(userData._id);
+//         socket.emit("connected")
+//     })
 
-    socket.on("join chat", (room) => {
-        socket.join(room)
+//     socket.on("join chat", (room) => {
+//         socket.join(room)
 
-    })
+//     })
 
-    socket.on("new message", (newMessageRec) => {
-        var chat = newMessageRec.chat;
-        if (!chat.users) return console.log("chat user not defined");
+//     socket.on("new message", (newMessageRec) => {
+//         var chat = newMessageRec.chat;
+//         if (!chat.users) return console.log("chat user not defined");
 
-        chat.users.forEach(user => {
-            if (user != newMessageRec.sender._id) {
-                socket.in(user).emit("message received", newMessageRec);
-            }
-        });
-    });
+//         chat.users.forEach(user => {
+//             if (user != newMessageRec.sender._id) {
+//                 socket.in(user).emit("message received", newMessageRec);
+//             }
+//         });
+//     });
 
 
 
-});
+// });
