@@ -18,9 +18,9 @@ app.get("/", (req, res) => {
     console.log("welcome to chat app");
 })
 
-app.use("/api/user", userRoutes);
-app.use("/api/chat", chatRoutes);
-app.use("/api/message", messageRoutes);
+// app.use("/api/user", userRoutes);
+// app.use("/api/chat", chatRoutes);
+// app.use("/api/message", messageRoutes);
 
 const port = process.env.PORT || 8001
 const server = app.listen(port, console.log("server is running at post = ", port));
