@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 import * as types from "../redux/appReducer/actionType";
 import { useDispatch } from "react-redux";
 
-const ENDPOINT="https://chat-app-eta-sooty.vercel.app"
+const ENDPOINT="https://chat-app-a33u.vercel.app"
 
 const Home = () => {
   const [socketConnected, setSocketConnected] = useState(false);
